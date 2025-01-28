@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cq2a3d7p2fw7n"]
+
+[ext_resource type="PackedScene" uid="uid://dndbb0a216yg" path="res://scenes/manager/scene_manager.tscn" id="1_8vwse"]
+[ext_resource type="Script" path="res://scripts/TransparentWindow.cs" id="1_ubi7o"]
+
+[node name="Main" type="Node" groups=["transparent_window"]]
+script = ExtResource("1_ubi7o")
+
+[node name="SceneManager" parent="." instance=ExtResource("1_8vwse")]
