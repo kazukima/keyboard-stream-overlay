@@ -1,9 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://cq2a3d7p2fw7n"]
+[gd_scene format=3 uid="uid://cq2a3d7p2fw7n"]
 
 [ext_resource type="PackedScene" uid="uid://dndbb0a216yg" path="res://scenes/manager/scene_manager.tscn" id="1_8vwse"]
-[ext_resource type="Script" path="res://scripts/TransparentWindow.cs" id="1_ubi7o"]
+[ext_resource type="Script" uid="uid://cg4i1tsooavd2" path="res://scripts/TransparentWindow.cs" id="1_ubi7o"]
 
-[node name="Main" type="Node" groups=["transparent_window"]]
+[node name="Main" type="Node" unique_id=1579659335 groups=["transparent_window"]]
 script = ExtResource("1_ubi7o")
 
-[node name="SceneManager" parent="." instance=ExtResource("1_8vwse")]
+[node name="SceneManager" parent="." unique_id=781523733 instance=ExtResource("1_8vwse")]
+
+[node name="Panel" type="Panel" parent="." unique_id=1380226586]
+offset_left = 450.0
+offset_top = 230.0
+offset_right = 490.0
+offset_bottom = 270.0
