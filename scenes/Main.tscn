@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://oijs3gx7hupx" path="res://scripts/TransparentWindow.cs" id="1_rvslj"]
 [ext_resource type="Script" uid="uid://dpvuh387b50lc" path="res://scripts/draggablePanel.gd" id="2_0bbpv"]
+[ext_resource type="Script" uid="uid://003gqlw8vcg2" path="res://scripts/passthrough_manager.gd" id="3_0bbpv"]
 
 [node name="Main" type="Node" unique_id=992134539 groups=["transparent_window"]]
 script = ExtResource("1_rvslj")
@@ -33,3 +34,6 @@ offset_top = 276.0
 offset_right = 366.0
 offset_bottom = 299.0
 autowrap_mode = 3
+
+[node name="PassthroughManager" type="Node2D" parent="." unique_id=1329978052]
+script = ExtResource("3_0bbpv")
