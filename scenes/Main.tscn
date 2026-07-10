@@ -7,14 +7,14 @@
 [node name="Main" type="Node" unique_id=992134539 groups=["transparent_window"]]
 script = ExtResource("1_rvslj")
 
-[node name="BarPanel" type="PanelContainer" parent="." unique_id=1796161323]
+[node name="BarPanel" type="PanelContainer" parent="." unique_id=1796161323 groups=["clickable"]]
 offset_left = -20.0
 offset_top = -45.0
 offset_right = 210.0
 offset_bottom = 129.0
 script = ExtResource("2_0bbpv")
 
-[node name="ChronoPanel" type="PanelContainer" parent="." unique_id=534326938]
+[node name="ChronoPanel" type="PanelContainer" parent="." unique_id=534326938 groups=["clickable"]]
 offset_left = 385.0
 offset_top = 146.0
 offset_right = 615.0

@@ -10,7 +10,8 @@ extends Node2D
 var check_timer: Timer
 var cached_bar_rect: Rect2
 var cached_chrono_rect: Rect2
-var passthrough_enabled = true
+var cached_node_rect: Rect2
+var hovering_over_clickable = false
 
 func _ready():
 	if RenderingServer.get_current_rendering_method() != "gl_compatibility": 
@@ -37,28 +38,33 @@ func _ready():
 	check_timer.start()
 
 func _on_check_timer_timeout():
-	# Update cached rects only when panels move
-	if bar_panel.is_queued_for_deletion():
-		return
-
-	# Using to get the dimensions of the panel
-	cached_bar_rect = bar_panel.get_global_rect()
-	cached_chrono_rect = chrono_panel.get_global_rect()
-	
-	var mouse_pos = get_global_mouse_position()
-
 	# Make sure the parent node is assigned to the group called "transparent_window"
 	transparent_window = get_tree().get_first_node_in_group("transparent_window")
-	if transparent_window != null:
-		# Check that the panel is visible and the mouse is within the rect area
-		if (bar_panel.visible and cached_bar_rect.has_point(mouse_pos)) \
-		or (chrono_panel.visible and cached_chrono_rect.has_point(mouse_pos)):
-			# Call the C# script and turn click through off for everything
-			# C# Script provided by https://github.com/matheusnicolas/keyboard-stream-overlay based on the following discussion:
-			# https://www.reddit.com/r/godot/comments/1i4s2x2/does_window_set_mouse_passthrough_allow_mouse/
-			transparent_window.SetClickThrough(false)
-			hover_feedback_label.text = "hovering"
-		else:
-			# Call the C# script and turn on click through
-			transparent_window.SetClickThrough(true)
-			hover_feedback_label.text = "not hovering"
+
+	# Update cached rects only when panels move
+	if bar_panel.is_queued_for_deletion() or (transparent_window == null):
+		print("bar_panel queued for deletion = " + str(bar_panel.is_queued_for_deletion()) \
+			+ "Transparent Window =" + str(transparent_window))
+		return
+
+	var mouse_pos = get_global_mouse_position()
+
+	# Default hovering over clickable false by default to enable passthrough on by default
+	hovering_over_clickable = false
+	# Go through all of the nodes that are in the "clickable" group to see if we're hovering over them
+	for i in get_tree().get_nodes_in_group("clickable"):
+		cached_node_rect = i.get_global_rect()
+		# If node is visible and mouse within its area then it is okay to turn off passthrough
+		if i.visible and cached_node_rect.has_point(mouse_pos):
+			hovering_over_clickable = true
+
+	if hovering_over_clickable:
+		# Call the C# script and turn click through off for everything
+		# C# Script provided by https://github.com/matheusnicolas/keyboard-stream-overlay based on the following discussion:
+		# https://www.reddit.com/r/godot/comments/1i4s2x2/does_window_set_mouse_passthrough_allow_mouse/
+		transparent_window.SetClickThrough(false)
+		hover_feedback_label.text = "hovering"
+	else:
+		# Call the C# script and turn on click through
+		transparent_window.SetClickThrough(true)
+		hover_feedback_label.text = "not hovering"
