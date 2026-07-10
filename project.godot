@@ -8,43 +8,40 @@
 
 config_version=5
 
-[animation]
-
-compatibility/default_parent_skeleton_in_mesh_instance_3d=true
-
 [application]
 
-config/name="keyboard-overlay"
-run/main_scene="res://main.tscn"
-config/features=PackedStringArray("4.7", "C#", "GL Compatibility")
+config/name="TestProject"
+run/main_scene="uid://cf78mdoun6yfq"
+config/features=PackedStringArray("4.7", "C#", "Forward Plus")
 run/max_fps=60
-boot_splash/show_image=false
 config/icon="res://icon.svg"
-
-[autoload]
-
-UdpServer="res://autoload/udp_server.gd"
-GlobalEvents="res://autoload/global_events.gd"
 
 [display]
 
-window/size/viewport_width=1024
+window/size/viewport_width=600
+window/size/viewport_height=300
 window/size/borderless=true
 window/size/always_on_top=true
 window/size/transparent=true
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 window/per_pixel_transparency/allowed=true
 window/vsync/vsync_mode=0
+window/transparent_background=true
 
 [dotnet]
 
-project/assembly_name="keyboard-overlay"
+project/assembly_name="TestProject"
 
 [editor]
 
-movie_writer/disable_vsync=true
+export/convert_text_resources_to_binary=false
 
 [rendering]
 
+rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 viewport/transparent_background=true
+2d/snap/snap_2d_transforms_to_pixel=true
+2d/snap/snap_2d_vertices_to_pixel=true

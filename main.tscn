@@ -1,15 +1,35 @@
-[gd_scene format=3 uid="uid://cq2a3d7p2fw7n"]
+[gd_scene format=3 uid="uid://cf78mdoun6yfq"]
 
-[ext_resource type="PackedScene" uid="uid://dndbb0a216yg" path="res://scenes/manager/scene_manager.tscn" id="1_8vwse"]
-[ext_resource type="Script" uid="uid://cg4i1tsooavd2" path="res://scripts/TransparentWindow.cs" id="1_ubi7o"]
+[ext_resource type="Script" uid="uid://dpvuh387b50lc" path="res://draggablePanel.gd" id="1_glv2v"]
+[ext_resource type="Script" uid="uid://oijs3gx7hupx" path="res://TransparentWindow.cs" id="1_uu6xs"]
 
-[node name="Main" type="Node" unique_id=1579659335 groups=["transparent_window"]]
-script = ExtResource("1_ubi7o")
+[node name="Main" type="Node" unique_id=992134539 groups=["transparent_window"]]
+script = ExtResource("1_uu6xs")
 
-[node name="SceneManager" parent="." unique_id=781523733 instance=ExtResource("1_8vwse")]
+[node name="BarPanel" type="PanelContainer" parent="." unique_id=1796161323]
+offset_left = -20.0
+offset_top = -45.0
+offset_right = 210.0
+offset_bottom = 129.0
+script = ExtResource("1_glv2v")
 
-[node name="Panel" type="Panel" parent="." unique_id=1380226586]
-offset_left = 450.0
-offset_top = 230.0
-offset_right = 490.0
-offset_bottom = 270.0
+[node name="ChronoPanel" type="PanelContainer" parent="." unique_id=534326938]
+offset_left = 385.0
+offset_top = 146.0
+offset_right = 615.0
+offset_bottom = 326.0
+script = ExtResource("1_glv2v")
+
+[node name="TroubleshootLabel" type="Label" parent="." unique_id=12975924]
+offset_left = 234.0
+offset_top = 1.0
+offset_right = 597.0
+offset_bottom = 24.0
+autowrap_mode = 3
+
+[node name="HoverFeedbackLabel" type="Label" parent="." unique_id=1387442770]
+offset_left = 3.0
+offset_top = 276.0
+offset_right = 366.0
+offset_bottom = 299.0
+autowrap_mode = 3
