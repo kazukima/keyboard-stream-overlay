@@ -1,24 +1,24 @@
 [gd_scene format=3 uid="uid://cf78mdoun6yfq"]
 
-[ext_resource type="Script" uid="uid://dpvuh387b50lc" path="res://draggablePanel.gd" id="1_glv2v"]
-[ext_resource type="Script" uid="uid://oijs3gx7hupx" path="res://TransparentWindow.cs" id="1_uu6xs"]
+[ext_resource type="Script" uid="uid://oijs3gx7hupx" path="res://scripts/TransparentWindow.cs" id="1_rvslj"]
+[ext_resource type="Script" uid="uid://dpvuh387b50lc" path="res://scripts/draggablePanel.gd" id="2_0bbpv"]
 
 [node name="Main" type="Node" unique_id=992134539 groups=["transparent_window"]]
-script = ExtResource("1_uu6xs")
+script = ExtResource("1_rvslj")
 
 [node name="BarPanel" type="PanelContainer" parent="." unique_id=1796161323]
 offset_left = -20.0
 offset_top = -45.0
 offset_right = 210.0
 offset_bottom = 129.0
-script = ExtResource("1_glv2v")
+script = ExtResource("2_0bbpv")
 
 [node name="ChronoPanel" type="PanelContainer" parent="." unique_id=534326938]
 offset_left = 385.0
 offset_top = 146.0
 offset_right = 615.0
 offset_bottom = 326.0
-script = ExtResource("1_glv2v")
+script = ExtResource("2_0bbpv")
 
 [node name="TroubleshootLabel" type="Label" parent="." unique_id=12975924]
 offset_left = 234.0
